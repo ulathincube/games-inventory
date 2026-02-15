@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+  transition: all 300ms ease-out;
+}
+
+.link:visited,
+.link:link {
+  color: var(--color-highlight);
+  font-weight: 600;
+}
+
+.link:active,
+.link:hover {
+  color: var(--color-text-dark);
+}

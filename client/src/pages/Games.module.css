@@ -1,0 +1,67 @@
+.primary {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.loader {
+  text-align: center;
+  font-weight: 2rem;
+  animation: 1000ms infinite alternate loading;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.game {
+  font-size: 2rem;
+  transition: all 300ms ease-out;
+  font-weight: 500;
+}
+
+.game:link,
+.game:visited {
+  color: var(--color-link);
+}
+
+.game:hover,
+.game:active {
+  color: var(--color-highlight);
+}
+
+.add {
+  transition: all 300ms ease-out;
+
+  font-weight: 600;
+
+  padding: 1rem 2rem;
+  display: inline-block;
+}
+
+.add:visited,
+.add:link {
+  color: var(--color-highlight);
+  border: 1px solid currentColor;
+}
+
+.add:hover,
+.add:active {
+  color: var(--color-text-dark);
+  background-color: var(--color-highlight);
+  border: 1px solid var(--color-highlight);
+}
+
+@keyframes loading {
+  from {
+    opacity: 0;
+    color: gray;
+  }
+
+  to {
+    opacity: 1;
+    color: black;
+  }
+}

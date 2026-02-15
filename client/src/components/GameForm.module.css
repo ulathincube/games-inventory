@@ -1,0 +1,41 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-group:last-child {
+  margin-top: 1rem;
+}
+
+input {
+  min-width: 20rem;
+  padding: 0.5rem;
+}
+
+label {
+  font-weight: 500;
+}
+
+.primary-button {
+  background-color: var(--button-primary);
+  color: var(--color-white);
+}
+
+.error {
+  background-color: red;
+  color: var(--color-white);
+  padding: 1rem;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  font-weight: 800;
+}

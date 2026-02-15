@@ -1,0 +1,38 @@
+.primary {
+  font-size: 5rem;
+}
+
+.info {
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.info-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.content {
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  gap: 3rem;
+}
+
+.primary-button {
+  background-color: var(--button-primary);
+  color: var(--color-white);
+}
+
+.alternate-button {
+  background-color: var(--button-alternate);
+  color: var(--color-text-dark);
+}
