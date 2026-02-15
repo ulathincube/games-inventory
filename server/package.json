@@ -21,7 +21,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx --watch ./index.js"
+    "dev": "tsx --watch ./index.js",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   },
   "type": "module",
   "keywords": [],
