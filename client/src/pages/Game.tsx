@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import GameForm from '../components/GameForm'
 import styles from './Game.module.css'
+import { apiURL } from '../config/constants'
 
 interface GameObject {
   title: string
@@ -21,12 +22,9 @@ function Game() {
   const deleteGameHandler = (gameId: number) => {
     const deleteGame = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/games/${gameId}`,
-          {
-            method: 'DELETE',
-          }
-        )
+        const response = await fetch(`${apiURL}/games/${gameId}`, {
+          method: 'DELETE',
+        })
         if (response.ok) return navigate('/')
         // const data = await response.json()
       } catch (error) {
@@ -51,9 +49,7 @@ function Game() {
   useEffect(() => {
     const getGameData = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5000/api/games/${gameId}`
-        )
+        const response = await fetch(`${apiURL}/games/${gameId}`)
 
         const data = await response.json()
         setGameData(data)
@@ -114,12 +110,7 @@ function Game() {
         </div>
       </dl>
 
-      {update && (
-        <GameForm
-          url={`http://localhost:5000/api/games/${gameId}`}
-          method="PUT"
-        />
-      )}
+      {update && <GameForm url={`${apiURL}/games/${gameId}`} method="PUT" />}
     </section>
   )
 }

@@ -1,16 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import styles from './GameForm.module.css'
+import { apiURL } from '../config/constants'
 
 interface GameProps {
   method: string
   url: string
 }
 
-function GameForm({
-  method = 'POST',
-  url = 'http://localhost:5000/api/games',
-}: GameProps) {
+function GameForm({ method = 'POST', url = `${apiURL}/games` }: GameProps) {
   const [error, setError] = useState<null | string>(null)
   const [genreData, setGenreData] = useState<null | []>(null)
   const navigate = useNavigate()
@@ -18,7 +16,7 @@ function GameForm({
   useEffect(() => {
     const getGenres = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/games/genre')
+        const response = await fetch(`${apiURL}/games/genre`)
         if (!response.ok) throw new Error('Failed to make a request!')
         const data = await response.json()
         const allGenres = data.map(
@@ -106,7 +104,9 @@ function GameForm({
             <label htmlFor="genre">Genre</label>
             <select ref={genreRef} id="genre">
               {genreData?.map((genre: string) => (
-                <option value={genre}>{genre}</option>
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
               ))}
             </select>
           </div>

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
 import styles from './Games.module.css'
+import { apiURL } from '../config/constants'
 
 function Games() {
   const [games, setGames] = useState<[]>([])
   useEffect(() => {
     const getAllGames = async () => {
-      const response = await fetch('http://localhost:5000/api/games')
+      const response = await fetch(`${apiURL}/games`)
       if (!response.ok) throw new Error('Invalid response! : Error encountered')
 
       const data = await response.json()

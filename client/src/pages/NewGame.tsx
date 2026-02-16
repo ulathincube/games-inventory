@@ -1,9 +1,10 @@
 import GameForm from '../components/GameForm'
+import { apiURL } from '../config/constants'
 
 function NewGame() {
   return (
     <section>
-      <GameForm method="POST" url="http://localhost:5000/api/games" />
+      <GameForm method="POST" url={`${apiURL}/games`} />
     </section>
   )
 }
