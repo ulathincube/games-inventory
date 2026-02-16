@@ -23,7 +23,8 @@
   "scripts": {
     "dev": "tsx --watch ./index.js",
     "build": "tsc",
-    "start": "npm install && node ./dist/index.js"
+    "start": "npm install && node ./dist/index.js",
+    "seed": "tsx ./seed.js"
   },
   "type": "module",
   "keywords": [],

@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS developers (developer_id SERIAL PRIMARY KEY, developer_name VARCHAR(50) NOT NULL, creation_date TIMESTAMP);
+
+CREATE TABLE IF NOT EXISTS genres (genre_id SERIAL PRIMARY KEY, genre_name VARCHAR(25));
+
+
+CREATE TABLE IF NOT EXISTS games (game_id SERIAL PRIMARY KEY, developer_id INT, genre_id INT, title VARCHAR(50) NOT NULL, release_date TIMESTAMP NOT NULL, sales INT, FOREIGN KEY(developer_id) REFERENCES developers(developer_id) ON DELETE CASCADE, FOREIGN KEY(genre_id) REFERENCES genres(genre_id) ON DELETE CASCADE);
+
+
+
+INSERT INTO developers (developer_name, creation_date) VALUES ('Rockstar', '1998-12-01'), ('Naughty Dog', '1984-09-27'), ('EA', '1982-05-27'), ('CD Projekt Red', '2002-03-06'), ('IO Interactive', '1998-09-16') RETURNING *;
+
+INSERT INTO genres (genre_name) VALUES ('action'), ('sports'), ('horror'), ('rpg'), ('fps') RETURNING *;
+
+INSERT INTO games (developer_id, genre_id, title, release_date, sales) VALUES (1, 4, 'Grand Theft Auto V', '2013-09-17', 225_000_000), (2, 1, 'Uncharted 4: A Thief''s end', '2016-05-10', 18_000_000), (3, 2, 'EA Sports FC 24', '2023-09-22', 14.5_000_000), (4, 4, 'The Witcher 3: Wild Hunt', '2015-05-18', 60_000_000), (3, 3, 'Dead Space 3', '2013-02-05', 605_000), (5, 1, 'Hitman 3', '2021-01-20', '25_000_000');
+
+
+
