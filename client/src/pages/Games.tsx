@@ -6,7 +6,6 @@ import { apiURL } from '../config/constants'
 function Games() {
   const [games, setGames] = useState<[]>([])
   useEffect(() => {
-    console.log(`${apiURL}/games`)
     const getAllGames = async () => {
       const response = await fetch(`${apiURL}/games`)
       if (!response.ok) throw new Error('Invalid response! : Error encountered')
